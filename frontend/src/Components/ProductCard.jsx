@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../Context/AppContext";
 
 const ProductCard = ({ product }) => {
-  const [count, setCount] = useState(0);
   const {
     currency,
     addToCard,
@@ -15,7 +13,15 @@ const ProductCard = ({ product }) => {
 
   return (
     product && (
-      <div className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-56 max-w-56 w-full">
+      <div
+        onClick={() => {
+          navigate(
+            `/products/${product.category.toLowerCase()}/${product._id}`
+          );
+          scrollTo(0, 0);
+        }}
+        className="border border-gray-500/20 rounded-md md:px-4 px-3 py-2 bg-white min-w-56 max-w-56 w-full"
+      >
         <div className="group cursor-pointer flex items-center justify-center px-2">
           <img
             className="group-hover:scale-105 transition max-w-26 md:max-w-36"
