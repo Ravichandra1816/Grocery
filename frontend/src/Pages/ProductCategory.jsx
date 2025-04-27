@@ -5,14 +5,14 @@ import { categories } from "../assets/assets";
 import ProductCard from "../Components/ProductCard";
 
 const ProductCategory = () => {
-  const { product } = useAppContext();
+  const { products } = useAppContext();
   const { category } = useParams();
 
   const serachCategory = categories.find(
     (item) => item.path.toLowerCase() === category
   );
 
-  const filterProduct = product.filter(
+  const filterProduct = products.filter(
     (product) => product.category.toLowerCase() === category
   );
   return (

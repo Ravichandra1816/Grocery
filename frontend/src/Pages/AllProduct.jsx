@@ -4,20 +4,20 @@ import { useEffect } from "react";
 import ProductCard from "../Components/ProductCard";
 
 const AllProduct = () => {
-  const { product, searchQuery } = useAppContext();
+  const { products, searchQuery } = useAppContext(); //
   const [filterProduct, setFilterProduct] = useState([]);
 
   useEffect(() => {
     if (searchQuery.length > 0) {
       setFilterProduct(
-        product.filter((product) =>
+        products.filter((product) =>
           product.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
       );
     } else {
-      setFilterProduct(product);
+      setFilterProduct(products);
     }
-  }, [product, searchQuery]);
+  }, [products, searchQuery]);
   return (
     <div className="mt-16 flex flex-col">
       <div className="flex flex-col items-end w-max">
